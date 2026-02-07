@@ -12,7 +12,7 @@
  * on an empty stack results in undefined behavior (possibly crashing your
  * program)!
  *
- * Author: Your Name
+ * Author: Sophie Kawi
  */
 
 #ifndef _STACK_H
@@ -21,26 +21,20 @@
 #include <cstddef> // for size_t
 #include <string>  // for stage 1
 
-/***
- * DO NOT put unscoped 'using namespace std;' in header files!
- * Instead use the std:: prefix where required in class definitions, as
- * demonstrated below.
- */
-
 class stack {
   public:
-    std::string top(); // non-inline, implemented in stack-stage1.cpp
+    stack();
 
-    // inline definitions, doing nothing at the moment
-    void push(const std::string &) { return; }
-    void pop() { return; }
-    size_t size() { return 0; }
-    bool is_empty() { return true; }
-
-    stack() { ; }
+    void push(const std::string &value);
+    void pop();
+    std::string top();
+    size_t size();
+    bool is_empty();
 
   private:
-	std::string _data[4];
+    std::string *_data;
+    size_t _capacity;
+    size_t _count;
 };
 
-#endif
+#endif  
